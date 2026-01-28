@@ -11,6 +11,8 @@ from claude_agent_sdk import (
     ClaudeAgentOptions,
     ClaudeSDKClient,
     HookContext,
+    HookInput,
+    HookJSONOutput,
     HookMatcher,
     ResultMessage,
     SystemMessage,
@@ -158,8 +160,10 @@ ALLOWED_TOOLS = {
 
 
 async def restrict_tools(
-    input_data: dict[str, Any],
-) -> dict[str, Any]:
+    input_data: HookInput,
+    tool_use_id: str | None,
+    context: HookContext,
+) -> HookJSONOutput:
     tool_name = input_data.get("tool_name", "")
     if tool_name in ALLOWED_TOOLS:
         return {}
@@ -260,7 +264,7 @@ async def main() -> None:
     except KeyboardInterrupt:
         console.print("\n[yellow]中断しました。[/yellow]")
     except Exception as e:
-        console.print(f"[red]エラー: {e}[/red]", file=sys.stderr)
+        Console(stderr=True).print(f"[red]エラー: {e}[/red]")
         sys.exit(1)
 
 
