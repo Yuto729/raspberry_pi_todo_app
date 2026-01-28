@@ -1,0 +1,179 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #1a1a2e;
+    color: #eaeaea;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 2px solid #16213e;
+    margin-bottom: 16px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #e94560;
+}
+
+/* Task form */
+.task-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.task-input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #16213e;
+    border-radius: 8px;
+    background-color: #16213e;
+    color: #eaeaea;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.task-input:focus {
+    border-color: #e94560;
+}
+
+.task-input::placeholder {
+    color: #6b7280;
+}
+
+.add-btn {
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+    background-color: #ff6b6b;
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+}
+
+/* Task list */
+#task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background-color: #16213e;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s;
+}
+
+.task-item:hover {
+    background-color: #1f2b4a;
+}
+
+/* Task title */
+.task-title {
+    flex: 1;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+/* Complete button (checkmark) */
+.complete-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    background-color: transparent;
+    border: 2px solid #4ade80;
+    border-radius: 8px;
+    color: #4ade80;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.complete-btn::before {
+    content: "\2714";
+}
+
+.complete-btn:hover {
+    background-color: #4ade80;
+    color: #1a1a2e;
+}
+
+/* Empty state */
+.empty-message {
+    text-align: center;
+    padding: 32px;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+/* HTMX loading indicator */
+.htmx-request {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Responsive adjustments for 5-inch display (800x480) */
+@media (max-width: 800px) {
+    .container {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .task-input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .add-btn {
+        padding: 10px 16px;
+        font-size: 18px;
+    }
+
+    .task-item {
+        padding: 12px;
+    }
+
+    .complete-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .task-title {
+        font-size: 14px;
+    }
+}

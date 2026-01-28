@@ -1,0 +1,13 @@
+[project]
+name = "raspi-todo-app"
+version = "0.1.0"
+description = "ADHD-optimized task management system for Raspberry Pi"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "jinja2>=3.1.0",
+    "python-ulid>=2.2.0",
+    "python-multipart>=0.0.6",
+]
